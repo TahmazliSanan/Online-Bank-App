@@ -1,20 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using OnlineBankApp.Dtos;
+using OnlineBankApp.Services;
 
 namespace OnlineBankApp.Forms
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private readonly UserService _userService;
+
+        public MainForm(UserService userService)
         {
             InitializeComponent();
+            _userService = userService;
+        }
+
+        private void linkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Hide();
+            var loginForm = new LoginForm(_userService);
+            loginForm.StartPosition = FormStartPosition.CenterScreen;
+            loginForm.Show(this);
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var firstName = txbFirstName.Text.Trim();
+                var lastName = txbLastName.Text.Trim();
+                var username = txbUsername.Text.Trim();
+                var password = txbPassword.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(firstName)
+                    || string.IsNullOrWhiteSpace(lastName)
+                    || string.IsNullOrWhiteSpace(username)
+                    || string.IsNullOrWhiteSpace(password))
+                {
+                    MessageBox.Show("Fields cannot be empty!", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var registerDto = new RegisterDto
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Username = username,
+                    Password = password
+                };
+
+                var registeredUser = _userService.RegisterUser(registerDto);
+                MessageBox.Show($"Registration completed! You can see your card number in dashboard!",
+                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Hide();
+                
+                var loginForm = new LoginForm(_userService);
+                loginForm.StartPosition = FormStartPosition.CenterScreen;
+                loginForm.Show(this);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

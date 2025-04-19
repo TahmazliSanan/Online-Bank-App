@@ -39,6 +39,7 @@
             txbPassword = new TextBox();
             lblRegistration = new Label();
             btnSignUp = new Button();
+            linkLogin = new LinkLabel();
             grbFirstName.SuspendLayout();
             grbLastName.SuspendLayout();
             grbUsername.SuspendLayout();
@@ -136,12 +137,27 @@
             btnSignUp.TabIndex = 5;
             btnSignUp.Text = "Sign Up";
             btnSignUp.UseVisualStyleBackColor = true;
+            btnSignUp.Click += btnSignUp_Click;
+            // 
+            // linkLogin
+            // 
+            linkLogin.AutoSize = true;
+            linkLogin.Font = new Font("Segoe UI", 12F);
+            linkLogin.LinkBehavior = LinkBehavior.NeverUnderline;
+            linkLogin.Location = new Point(423, 268);
+            linkLogin.Name = "linkLogin";
+            linkLogin.Size = new Size(49, 21);
+            linkLogin.TabIndex = 6;
+            linkLogin.TabStop = true;
+            linkLogin.Text = "Login";
+            linkLogin.LinkClicked += linkLogin_LinkClicked;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(483, 303);
+            Controls.Add(linkLogin);
             Controls.Add(btnSignUp);
             Controls.Add(lblRegistration);
             Controls.Add(grbPassword);
@@ -178,5 +194,6 @@
         private TextBox txbPassword;
         private Label lblRegistration;
         private Button btnSignUp;
+        private LinkLabel linkLogin;
     }
 }
