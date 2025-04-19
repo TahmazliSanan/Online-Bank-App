@@ -43,9 +43,6 @@ namespace OnlineBankApp.Forms
                 };
 
                 var loggedInUser = _userService.LoginUser(loginDto);
-
-                MessageBox.Show($"Welcome, {loggedInUser.Username}!", "Success", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Hide();
 
                 var dashboardForm = new DashboardForm(loggedInUser, _userService);
