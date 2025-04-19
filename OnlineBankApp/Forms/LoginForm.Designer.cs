@@ -35,6 +35,7 @@
             txbPassword = new TextBox();
             grbUsername = new GroupBox();
             txbUsername = new TextBox();
+            linkRegister = new LinkLabel();
             grbPassword.SuspendLayout();
             grbUsername.SuspendLayout();
             SuspendLayout();
@@ -42,9 +43,9 @@
             // btnSignIn
             // 
             btnSignIn.Font = new Font("Segoe UI", 12F);
-            btnSignIn.Location = new Point(243, 159);
+            btnSignIn.Location = new Point(187, 146);
             btnSignIn.Name = "btnSignIn";
-            btnSignIn.Size = new Size(75, 36);
+            btnSignIn.Size = new Size(95, 36);
             btnSignIn.TabIndex = 11;
             btnSignIn.Text = "Sign In";
             btnSignIn.UseVisualStyleBackColor = true;
@@ -53,7 +54,7 @@
             // 
             lblLogin.AutoSize = true;
             lblLogin.Font = new Font("Segoe UI", 20F);
-            lblLogin.Location = new Point(118, 9);
+            lblLogin.Location = new Point(187, 9);
             lblLogin.Name = "lblLogin";
             lblLogin.Size = new Size(95, 37);
             lblLogin.TabIndex = 10;
@@ -62,7 +63,7 @@
             // grbPassword
             // 
             grbPassword.Controls.Add(txbPassword);
-            grbPassword.Location = new Point(12, 142);
+            grbPassword.Location = new Point(255, 71);
             grbPassword.Name = "grbPassword";
             grbPassword.Size = new Size(216, 58);
             grbPassword.TabIndex = 9;
@@ -95,11 +96,25 @@
             txbUsername.Size = new Size(204, 29);
             txbUsername.TabIndex = 0;
             // 
+            // linkRegister
+            // 
+            linkRegister.AutoSize = true;
+            linkRegister.Font = new Font("Segoe UI", 12F);
+            linkRegister.LinkBehavior = LinkBehavior.NeverUnderline;
+            linkRegister.Location = new Point(404, 161);
+            linkRegister.Name = "linkRegister";
+            linkRegister.Size = new Size(67, 21);
+            linkRegister.TabIndex = 12;
+            linkRegister.TabStop = true;
+            linkRegister.Text = "Register";
+            linkRegister.LinkClicked += linkRegister_LinkClicked;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(330, 212);
+            ClientSize = new Size(483, 193);
+            Controls.Add(linkRegister);
             Controls.Add(btnSignIn);
             Controls.Add(lblLogin);
             Controls.Add(grbPassword);
@@ -126,5 +141,6 @@
         private TextBox txbPassword;
         private GroupBox grbUsername;
         private TextBox txbUsername;
+        private LinkLabel linkRegister;
     }
 }
