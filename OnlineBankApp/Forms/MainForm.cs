@@ -49,6 +49,7 @@ namespace OnlineBankApp.Forms
                 };
 
                 var registeredUser = _userService.RegisterUser(registerDto);
+                
                 MessageBox.Show($"Registration completed! You can see your card number in dashboard!",
                 "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Hide();
