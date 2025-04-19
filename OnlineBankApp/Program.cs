@@ -20,9 +20,10 @@ namespace OnlineBankApp
             builder.AddScoped<UserService>();
             
             var serviceProvider = builder.BuildServiceProvider();
+            var userService = serviceProvider.GetRequiredService<UserService>();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm(serviceProvider.GetRequiredService<UserService>()));
+            Application.Run(new LoginForm(userService));
         }
     }
 }
