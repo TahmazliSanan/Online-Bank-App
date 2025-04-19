@@ -124,7 +124,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "LoginForm";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MovaBank";
             grbPassword.ResumeLayout(false);
             grbPassword.PerformLayout();

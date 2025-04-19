@@ -18,7 +18,7 @@ namespace OnlineBankApp.Forms
             Hide();
             var loginForm = new LoginForm(_userService);
             loginForm.StartPosition = FormStartPosition.CenterScreen;
-            loginForm.Show(this);
+            loginForm.Show();
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace OnlineBankApp.Forms
                 
                 var loginForm = new LoginForm(_userService);
                 loginForm.StartPosition = FormStartPosition.CenterScreen;
-                loginForm.Show(this);
+                loginForm.Show();
             }
             catch (Exception exception)
             {

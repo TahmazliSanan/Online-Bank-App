@@ -17,6 +17,7 @@ namespace OnlineBankApp.Forms
         {
             Hide();
             var mainForm = new MainForm(_userService);
+            mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.Show();
         }
 
