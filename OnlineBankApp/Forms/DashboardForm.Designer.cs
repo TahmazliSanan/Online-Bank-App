@@ -212,6 +212,7 @@
             btnDeleteAccount.TabIndex = 5;
             btnDeleteAccount.Text = "Delete Account";
             btnDeleteAccount.UseVisualStyleBackColor = false;
+            btnDeleteAccount.Click += btnDeleteAccount_Click;
             // 
             // btnLogout
             // 

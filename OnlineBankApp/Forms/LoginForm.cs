@@ -45,7 +45,7 @@ namespace OnlineBankApp.Forms
                 var loggedInUser = _userService.LoginUser(loginDto);
                 Hide();
 
-                var dashboardForm = new DashboardForm(loggedInUser, _userService);
+                var dashboardForm = new DashboardForm(loggedInUser.Id, loggedInUser, _userService);
                 dashboardForm.StartPosition = FormStartPosition.CenterScreen;
                 dashboardForm.Show();
             }
