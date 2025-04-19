@@ -43,7 +43,7 @@
             // btnSignIn
             // 
             btnSignIn.Font = new Font("Segoe UI", 12F);
-            btnSignIn.Location = new Point(187, 146);
+            btnSignIn.Location = new Point(187, 145);
             btnSignIn.Name = "btnSignIn";
             btnSignIn.Size = new Size(95, 36);
             btnSignIn.TabIndex = 11;
