@@ -37,7 +37,7 @@
             txbUsername = new TextBox();
             grbPassword = new GroupBox();
             txbPassword = new TextBox();
-            label1 = new Label();
+            lblRegistration = new Label();
             btnSignUp = new Button();
             grbFirstName.SuspendLayout();
             grbLastName.SuspendLayout();
@@ -117,15 +117,15 @@
             txbPassword.Size = new Size(204, 29);
             txbPassword.TabIndex = 0;
             // 
-            // label1
+            // lblRegistration
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(152, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(193, 37);
-            label1.TabIndex = 4;
-            label1.Text = "REGISTRATION";
+            lblRegistration.AutoSize = true;
+            lblRegistration.Font = new Font("Segoe UI", 20F);
+            lblRegistration.Location = new Point(152, 9);
+            lblRegistration.Name = "lblRegistration";
+            lblRegistration.Size = new Size(193, 37);
+            lblRegistration.TabIndex = 4;
+            lblRegistration.Text = "REGISTRATION";
             // 
             // btnSignUp
             // 
@@ -143,7 +143,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(483, 303);
             Controls.Add(btnSignUp);
-            Controls.Add(label1);
+            Controls.Add(lblRegistration);
             Controls.Add(grbPassword);
             Controls.Add(grbUsername);
             Controls.Add(grbLastName);
@@ -176,7 +176,7 @@
         private TextBox txbUsername;
         private GroupBox grbPassword;
         private TextBox txbPassword;
-        private Label label1;
+        private Label lblRegistration;
         private Button btnSignUp;
     }
 }
