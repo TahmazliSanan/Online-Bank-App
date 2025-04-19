@@ -1,16 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OnlineBankApp.Entities;
 
 namespace OnlineBankApp.DataAccess.DataContext
 {
     public class AppDbContext : DbContext
     {
-        static string connectionString = "server=localhost;database=BankAppDb;user=root;password=23042002";
+        public DbSet<User> Users { get; set; }
+        public DbSet<Card> Cards { get; set; }
 
-        public AppDbContext(DbContextOptionsBuilder builder)
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
         {
-            builder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
-
+       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
