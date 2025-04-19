@@ -14,6 +14,15 @@ namespace OnlineBankApp.Services
             _context = context;
         }
 
+        public void DeleteAccount(long id)
+        {
+            var user = _context.Users
+                .FirstOrDefault(u => u.Id == id) ?? throw new Exception("User not found!");
+
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+        }
+
         public UserDto LoginUser(LoginDto dto)
         {
             var loggedInUser = _context.Users
