@@ -203,34 +203,40 @@
             // 
             // btnDeleteAccount
             // 
+            btnDeleteAccount.BackColor = Color.Red;
             btnDeleteAccount.Font = new Font("Segoe UI", 12F);
+            btnDeleteAccount.ForeColor = Color.White;
             btnDeleteAccount.Location = new Point(15, 156);
             btnDeleteAccount.Name = "btnDeleteAccount";
             btnDeleteAccount.Size = new Size(185, 50);
             btnDeleteAccount.TabIndex = 5;
             btnDeleteAccount.Text = "Delete Account";
-            btnDeleteAccount.UseVisualStyleBackColor = true;
+            btnDeleteAccount.UseVisualStyleBackColor = false;
             // 
             // btnLogout
             // 
+            btnLogout.BackColor = Color.Gray;
             btnLogout.Font = new Font("Segoe UI", 12F);
+            btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(15, 89);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(185, 50);
             btnLogout.TabIndex = 4;
             btnLogout.Text = "Logout";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
             // 
             // btnEditProfile
             // 
+            btnEditProfile.BackColor = Color.Green;
             btnEditProfile.Font = new Font("Segoe UI", 12F);
+            btnEditProfile.ForeColor = Color.White;
             btnEditProfile.Location = new Point(15, 22);
             btnEditProfile.Name = "btnEditProfile";
             btnEditProfile.Size = new Size(185, 50);
             btnEditProfile.TabIndex = 3;
             btnEditProfile.Text = "Edit Profile";
-            btnEditProfile.UseVisualStyleBackColor = true;
+            btnEditProfile.UseVisualStyleBackColor = false;
             // 
             // DashboardForm
             // 
