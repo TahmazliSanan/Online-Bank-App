@@ -51,7 +51,7 @@ namespace OnlineBankApp.Forms
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Login is unsuccessful!",
+                MessageBox.Show(exception.Message, "Error!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
