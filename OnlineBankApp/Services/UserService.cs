@@ -13,6 +13,27 @@ namespace OnlineBankApp.Services
             _context = context;
         }
 
+        public UserDto LoginUser(LoginDto dto)
+        {
+            var loggedInUser = _context.Users
+                .FirstOrDefault(u => u.Username.ToLower()
+                .Equals(dto.Username.ToLower())) ?? throw new Exception("User not found!");
+            
+            bool isPasswordMatch = BCrypt.Net.BCrypt
+                .Verify(dto.Password, loggedInUser.HashedPassword);
+
+            if (!isPasswordMatch)
+                throw new Exception("Password is not correct!");
+
+            return new UserDto
+            {
+                Id = loggedInUser.Id,
+                FullName = $"{loggedInUser.FirstName} {loggedInUser.LastName}",
+                Username = loggedInUser.Username,
+                CardNumber = loggedInUser.Card!.Number
+            };
+        }
+
         public UserDto RegisterUser(RegisterDto dto)
         {
             var registeredUser = _context.Users
