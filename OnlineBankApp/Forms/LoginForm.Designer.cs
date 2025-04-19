@@ -49,6 +49,7 @@
             btnSignIn.TabIndex = 11;
             btnSignIn.Text = "Sign In";
             btnSignIn.UseVisualStyleBackColor = true;
+            btnSignIn.Click += btnSignIn_Click;
             // 
             // lblLogin
             // 

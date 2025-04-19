@@ -1,4 +1,5 @@
-﻿using OnlineBankApp.Services;
+﻿using OnlineBankApp.Dtos;
+using OnlineBankApp.Services;
 
 namespace OnlineBankApp.Forms
 {
@@ -17,6 +18,44 @@ namespace OnlineBankApp.Forms
             Hide();
             var mainForm = new MainForm(_userService);
             mainForm.Show();
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var username = txbUsername.Text.Trim();
+                var password = txbPassword.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(username)
+                    || string.IsNullOrWhiteSpace(password))
+                {
+                    MessageBox.Show("Fields cannot be empty!", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var loginDto = new LoginDto
+                {
+                    Username = username,
+                    Password = password
+                };
+
+                var loggedInUser = _userService.LoginUser(loginDto);
+
+                MessageBox.Show($"Welcome, {loggedInUser.Username}!", "Success", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Hide();
+
+                var dashboardForm = new DashboardForm();
+                dashboardForm.StartPosition = FormStartPosition.CenterScreen;
+                dashboardForm.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Login is unsuccessful!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
