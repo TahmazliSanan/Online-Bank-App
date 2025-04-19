@@ -22,7 +22,7 @@ namespace OnlineBankApp
             var serviceProvider = builder.BuildServiceProvider();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm(serviceProvider.GetRequiredService<UserService>()));
+            Application.Run(new LoginForm(serviceProvider.GetRequiredService<UserService>()));
         }
     }
 }

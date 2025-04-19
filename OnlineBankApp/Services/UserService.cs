@@ -30,9 +30,11 @@ namespace OnlineBankApp.Services
             return new UserDto
             {
                 Id = loggedInUser.Id,
-                FullName = $"{loggedInUser.FirstName} {loggedInUser.LastName}",
+                FirstName = loggedInUser.FirstName,
+                LastName = loggedInUser.LastName,
                 Username = loggedInUser.Username,
-                CardNumber = loggedInUser.Card!.Number
+                CardNumber = loggedInUser.Card!.Number,
+                Balance = loggedInUser.Card.Balance,
             };
         }
 
@@ -69,7 +71,6 @@ namespace OnlineBankApp.Services
             return new UserDto
             {
                 Id = newUser.Id,
-                FullName = $"{newUser.FirstName} {newUser.LastName}",
                 Username = newUser.Username,
                 CardNumber = card.Number
             };
