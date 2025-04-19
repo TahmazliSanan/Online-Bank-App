@@ -1,19 +1,28 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using OnlineBankApp.DataAccess.DataContext;
 using OnlineBankApp.Forms;
+using OnlineBankApp.Services;
 
 namespace OnlineBankApp
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            var builder = new ServiceCollection();
+            var connectionString = "server=localhost;database=BankAppDb;user=root;password=23042002";
+
+            builder.AddDbContext<AppDbContext>(options => options
+            .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+            
+            builder.AddScoped<UserService>();
+            
+            var serviceProvider = builder.BuildServiceProvider();
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            Application.Run(new MainForm(serviceProvider.GetRequiredService<UserService>()));
         }
     }
 }
