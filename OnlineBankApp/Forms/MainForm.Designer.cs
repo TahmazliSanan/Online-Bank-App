@@ -117,6 +117,7 @@
             txbPassword.Name = "txbPassword";
             txbPassword.Size = new Size(204, 29);
             txbPassword.TabIndex = 0;
+            txbPassword.UseSystemPasswordChar = true;
             // 
             // lblRegistration
             // 
