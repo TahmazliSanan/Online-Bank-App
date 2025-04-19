@@ -1,0 +1,130 @@
+﻿namespace OnlineBankApp.Forms
+{
+    partial class LoginForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            btnSignIn = new Button();
+            lblLogin = new Label();
+            grbPassword = new GroupBox();
+            txbPassword = new TextBox();
+            grbUsername = new GroupBox();
+            txbUsername = new TextBox();
+            grbPassword.SuspendLayout();
+            grbUsername.SuspendLayout();
+            SuspendLayout();
+            // 
+            // btnSignIn
+            // 
+            btnSignIn.Font = new Font("Segoe UI", 12F);
+            btnSignIn.Location = new Point(243, 159);
+            btnSignIn.Name = "btnSignIn";
+            btnSignIn.Size = new Size(75, 36);
+            btnSignIn.TabIndex = 11;
+            btnSignIn.Text = "Sign In";
+            btnSignIn.UseVisualStyleBackColor = true;
+            // 
+            // lblLogin
+            // 
+            lblLogin.AutoSize = true;
+            lblLogin.Font = new Font("Segoe UI", 20F);
+            lblLogin.Location = new Point(118, 9);
+            lblLogin.Name = "lblLogin";
+            lblLogin.Size = new Size(95, 37);
+            lblLogin.TabIndex = 10;
+            lblLogin.Text = "LOGIN";
+            // 
+            // grbPassword
+            // 
+            grbPassword.Controls.Add(txbPassword);
+            grbPassword.Location = new Point(12, 142);
+            grbPassword.Name = "grbPassword";
+            grbPassword.Size = new Size(216, 58);
+            grbPassword.TabIndex = 9;
+            grbPassword.TabStop = false;
+            grbPassword.Text = "Password";
+            // 
+            // txbPassword
+            // 
+            txbPassword.Font = new Font("Segoe UI", 12F);
+            txbPassword.Location = new Point(6, 22);
+            txbPassword.Name = "txbPassword";
+            txbPassword.Size = new Size(204, 29);
+            txbPassword.TabIndex = 0;
+            // 
+            // grbUsername
+            // 
+            grbUsername.Controls.Add(txbUsername);
+            grbUsername.Location = new Point(12, 71);
+            grbUsername.Name = "grbUsername";
+            grbUsername.Size = new Size(216, 58);
+            grbUsername.TabIndex = 8;
+            grbUsername.TabStop = false;
+            grbUsername.Text = "Username";
+            // 
+            // txbUsername
+            // 
+            txbUsername.Font = new Font("Segoe UI", 12F);
+            txbUsername.Location = new Point(6, 22);
+            txbUsername.Name = "txbUsername";
+            txbUsername.Size = new Size(204, 29);
+            txbUsername.TabIndex = 0;
+            // 
+            // LoginForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(330, 212);
+            Controls.Add(btnSignIn);
+            Controls.Add(lblLogin);
+            Controls.Add(grbPassword);
+            Controls.Add(grbUsername);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "MovaBank";
+            grbPassword.ResumeLayout(false);
+            grbPassword.PerformLayout();
+            grbUsername.ResumeLayout(false);
+            grbUsername.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button btnSignIn;
+        private Label lblLogin;
+        private GroupBox grbPassword;
+        private TextBox txbPassword;
+        private GroupBox grbUsername;
+        private TextBox txbUsername;
+    }
+}
