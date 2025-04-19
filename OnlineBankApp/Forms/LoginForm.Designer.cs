@@ -45,9 +45,9 @@
             btnSignIn.BackColor = Color.Blue;
             btnSignIn.Font = new Font("Segoe UI", 12F);
             btnSignIn.ForeColor = Color.White;
-            btnSignIn.Location = new Point(187, 145);
+            btnSignIn.Location = new Point(178, 145);
             btnSignIn.Name = "btnSignIn";
-            btnSignIn.Size = new Size(95, 36);
+            btnSignIn.Size = new Size(131, 36);
             btnSignIn.TabIndex = 11;
             btnSignIn.Text = "Sign In";
             btnSignIn.UseVisualStyleBackColor = false;
