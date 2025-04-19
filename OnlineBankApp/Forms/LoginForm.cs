@@ -48,7 +48,7 @@ namespace OnlineBankApp.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Hide();
 
-                var dashboardForm = new DashboardForm();
+                var dashboardForm = new DashboardForm(loggedInUser);
                 dashboardForm.StartPosition = FormStartPosition.CenterScreen;
                 dashboardForm.Show();
             }
