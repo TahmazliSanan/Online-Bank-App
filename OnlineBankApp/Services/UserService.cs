@@ -1,4 +1,5 @@
-﻿using OnlineBankApp.DataAccess.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using OnlineBankApp.DataAccess.DataContext;
 using OnlineBankApp.Dtos;
 using OnlineBankApp.Entities;
 
@@ -16,6 +17,7 @@ namespace OnlineBankApp.Services
         public UserDto LoginUser(LoginDto dto)
         {
             var loggedInUser = _context.Users
+                .Include(u => u.Card)
                 .FirstOrDefault(u => u.Username.ToLower()
                 .Equals(dto.Username.ToLower())) ?? throw new Exception("User not found!");
             
