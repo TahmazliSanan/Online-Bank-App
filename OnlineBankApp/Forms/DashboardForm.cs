@@ -8,13 +8,16 @@ namespace OnlineBankApp.Forms
         private readonly long _userId;
         private readonly UserDto _userDto;
         private readonly UserService _userService;
+        private readonly CardService _cardService;
 
-        public DashboardForm(long userId, UserDto userDto, UserService userService)
+        public DashboardForm(long userId, UserDto userDto, 
+            UserService userService, CardService cardService)
         {
             InitializeComponent();
             _userId = userId;
             _userDto = userDto;
             _userService = userService;
+            _cardService = cardService;
         }
 
         private void DashboardForm_Load(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace OnlineBankApp.Forms
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Hide();
-            var loginForm = new LoginForm(_userService);
+            var loginForm = new LoginForm(_userService, _cardService);
             loginForm.Show();
         }
 
@@ -52,7 +55,7 @@ namespace OnlineBankApp.Forms
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Hide();
 
-                    var loginForm = new LoginForm(_userService);
+                    var loginForm = new LoginForm(_userService, _cardService);
                     loginForm.StartPosition = FormStartPosition.CenterScreen;
                     loginForm.Show();
                 }
@@ -98,6 +101,12 @@ namespace OnlineBankApp.Forms
         {
             btnDeleteAccount.BackColor = Color.White;
             btnDeleteAccount.ForeColor = Color.Red;
+        }
+
+        private void btnAddAmount_Click(object sender, EventArgs e)
+        {
+            var addAmountForm = new AddAmountForm(_userService, _cardService);
+            addAmountForm.ShowDialog(this);
         }
     }
 }

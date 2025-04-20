@@ -18,12 +18,14 @@ namespace OnlineBankApp
             .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             
             builder.AddScoped<UserService>();
+            builder.AddScoped<CardService>();
             
             var serviceProvider = builder.BuildServiceProvider();
             var userService = serviceProvider.GetRequiredService<UserService>();
+            var cardService = serviceProvider.GetRequiredService<CardService>();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm(userService));
+            Application.Run(new LoginForm(userService, cardService));
         }
     }
 }

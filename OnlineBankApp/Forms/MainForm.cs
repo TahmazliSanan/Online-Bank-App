@@ -6,17 +6,19 @@ namespace OnlineBankApp.Forms
     public partial class MainForm : Form
     {
         private readonly UserService _userService;
+        private readonly CardService _cardService;
 
-        public MainForm(UserService userService)
+        public MainForm(UserService userService, CardService cardService)
         {
             InitializeComponent();
             _userService = userService;
+            _cardService = cardService;
         }
 
         private void linkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-            var loginForm = new LoginForm(_userService);
+            var loginForm = new LoginForm(_userService, _cardService);
             loginForm.StartPosition = FormStartPosition.CenterScreen;
             loginForm.Show();
         }
@@ -54,7 +56,7 @@ namespace OnlineBankApp.Forms
                 "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Hide();
 
-                var loginForm = new LoginForm(_userService);
+                var loginForm = new LoginForm(_userService, _cardService);
                 loginForm.StartPosition = FormStartPosition.CenterScreen;
                 loginForm.Show();
             }

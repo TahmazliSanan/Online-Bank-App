@@ -6,17 +6,19 @@ namespace OnlineBankApp.Forms
     public partial class LoginForm : Form
     {
         private readonly UserService _userService;
+        private readonly CardService _cardService;
 
-        public LoginForm(UserService userService)
+        public LoginForm(UserService userService, CardService cardService)
         {
             InitializeComponent();
             _userService = userService;
+            _cardService = cardService;
         }
 
         private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-            var mainForm = new MainForm(_userService);
+            var mainForm = new MainForm(_userService, _cardService);
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.Show();
         }
@@ -43,9 +45,10 @@ namespace OnlineBankApp.Forms
                 };
 
                 var loggedInUser = _userService.LoginUser(loginDto);
+                SaveSession(loggedInUser);
                 Hide();
 
-                var dashboardForm = new DashboardForm(loggedInUser.Id, loggedInUser, _userService);
+                var dashboardForm = new DashboardForm(loggedInUser.Id, loggedInUser, _userService, _cardService);
                 dashboardForm.StartPosition = FormStartPosition.CenterScreen;
                 dashboardForm.Show();
             }
@@ -66,6 +69,13 @@ namespace OnlineBankApp.Forms
         {
             btnSignIn.BackColor = Color.White;
             btnSignIn.ForeColor = Color.Blue;
+        }
+
+        private void SaveSession(UserDto userDto)
+        {
+            AppSession.UserId = userDto.Id;
+            AppSession.FullName = userDto.FullName;
+            AppSession.CardNumber = userDto.CardNumber;
         }
     }
 }
