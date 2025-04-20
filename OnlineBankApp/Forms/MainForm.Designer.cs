@@ -131,9 +131,9 @@
             // 
             // btnSignUp
             // 
-            btnSignUp.BackColor = Color.Blue;
+            btnSignUp.BackColor = Color.White;
             btnSignUp.Font = new Font("Segoe UI", 12F);
-            btnSignUp.ForeColor = Color.White;
+            btnSignUp.ForeColor = Color.Blue;
             btnSignUp.Location = new Point(152, 247);
             btnSignUp.Name = "btnSignUp";
             btnSignUp.Size = new Size(193, 42);
@@ -141,6 +141,8 @@
             btnSignUp.Text = "Sign Up";
             btnSignUp.UseVisualStyleBackColor = false;
             btnSignUp.Click += btnSignUp_Click;
+            btnSignUp.MouseEnter += btnSignUp_MouseEnter;
+            btnSignUp.MouseLeave += btnSignUp_MouseLeave;
             // 
             // linkLogin
             // 

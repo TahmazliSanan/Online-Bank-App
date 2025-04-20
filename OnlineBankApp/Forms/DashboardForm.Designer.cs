@@ -203,9 +203,9 @@
             // 
             // btnDeleteAccount
             // 
-            btnDeleteAccount.BackColor = Color.Red;
+            btnDeleteAccount.BackColor = Color.White;
             btnDeleteAccount.Font = new Font("Segoe UI", 12F);
-            btnDeleteAccount.ForeColor = Color.White;
+            btnDeleteAccount.ForeColor = Color.Red;
             btnDeleteAccount.Location = new Point(15, 156);
             btnDeleteAccount.Name = "btnDeleteAccount";
             btnDeleteAccount.Size = new Size(185, 50);
@@ -213,12 +213,14 @@
             btnDeleteAccount.Text = "Delete Account";
             btnDeleteAccount.UseVisualStyleBackColor = false;
             btnDeleteAccount.Click += btnDeleteAccount_Click;
+            btnDeleteAccount.MouseEnter += btnDeleteAccount_MouseEnter;
+            btnDeleteAccount.MouseLeave += btnDeleteAccount_MouseLeave;
             // 
             // btnLogout
             // 
-            btnLogout.BackColor = Color.Gray;
+            btnLogout.BackColor = Color.White;
             btnLogout.Font = new Font("Segoe UI", 12F);
-            btnLogout.ForeColor = Color.White;
+            btnLogout.ForeColor = Color.Gray;
             btnLogout.Location = new Point(15, 89);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(185, 50);
@@ -226,18 +228,22 @@
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
+            btnLogout.MouseEnter += btnLogout_MouseEnter;
+            btnLogout.MouseLeave += btnLogout_MouseLeave;
             // 
             // btnEditProfile
             // 
-            btnEditProfile.BackColor = Color.Green;
+            btnEditProfile.BackColor = Color.White;
             btnEditProfile.Font = new Font("Segoe UI", 12F);
-            btnEditProfile.ForeColor = Color.White;
+            btnEditProfile.ForeColor = Color.Green;
             btnEditProfile.Location = new Point(15, 22);
             btnEditProfile.Name = "btnEditProfile";
             btnEditProfile.Size = new Size(185, 50);
             btnEditProfile.TabIndex = 3;
             btnEditProfile.Text = "Edit Profile";
             btnEditProfile.UseVisualStyleBackColor = false;
+            btnEditProfile.MouseEnter += btnEditProfile_MouseEnter;
+            btnEditProfile.MouseLeave += btnEditProfile_MouseLeave;
             // 
             // DashboardForm
             // 

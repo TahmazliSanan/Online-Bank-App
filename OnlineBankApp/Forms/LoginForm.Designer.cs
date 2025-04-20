@@ -42,9 +42,9 @@
             // 
             // btnSignIn
             // 
-            btnSignIn.BackColor = Color.Blue;
+            btnSignIn.BackColor = Color.White;
             btnSignIn.Font = new Font("Segoe UI", 12F);
-            btnSignIn.ForeColor = Color.White;
+            btnSignIn.ForeColor = Color.Blue;
             btnSignIn.Location = new Point(178, 145);
             btnSignIn.Name = "btnSignIn";
             btnSignIn.Size = new Size(131, 36);
@@ -52,6 +52,8 @@
             btnSignIn.Text = "Sign In";
             btnSignIn.UseVisualStyleBackColor = false;
             btnSignIn.Click += btnSignIn_Click;
+            btnSignIn.MouseEnter += btnSignIn_MouseEnter;
+            btnSignIn.MouseLeave += btnSignIn_MouseLeave;
             // 
             // lblLogin
             // 

@@ -55,5 +55,17 @@ namespace OnlineBankApp.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnSignIn_MouseEnter(object sender, EventArgs e)
+        {
+            btnSignIn.BackColor = Color.Blue;
+            btnSignIn.ForeColor = Color.White;
+        }
+
+        private void btnSignIn_MouseLeave(object sender, EventArgs e)
+        {
+            btnSignIn.BackColor = Color.White;
+            btnSignIn.ForeColor = Color.Blue;
+        }
     }
 }
