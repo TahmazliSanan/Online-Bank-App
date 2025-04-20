@@ -87,7 +87,6 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "AddAmountForm";
-            StartPosition = FormStartPosition.CenterParent;
             Text = "MovaBank";
             grbAmount.ResumeLayout(false);
             grbAmount.PerformLayout();

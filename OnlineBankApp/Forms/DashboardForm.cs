@@ -10,7 +10,7 @@ namespace OnlineBankApp.Forms
         private readonly UserService _userService;
         private readonly CardService _cardService;
 
-        public DashboardForm(long userId, UserDto userDto, 
+        public DashboardForm(long userId, UserDto userDto,
             UserService userService, CardService cardService)
         {
             InitializeComponent();
@@ -105,8 +105,10 @@ namespace OnlineBankApp.Forms
 
         private void btnAddAmount_Click(object sender, EventArgs e)
         {
+            Hide();
             var addAmountForm = new AddAmountForm(_userService, _cardService);
-            addAmountForm.ShowDialog(this);
+            addAmountForm.StartPosition = FormStartPosition.CenterScreen;
+            addAmountForm.Show();
         }
     }
 }
