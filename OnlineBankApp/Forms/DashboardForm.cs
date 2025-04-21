@@ -5,17 +5,12 @@ namespace OnlineBankApp.Forms
 {
     public partial class DashboardForm : Form
     {
-        private readonly long _userId;
-        private readonly UserDto _userDto;
         private readonly UserService _userService;
         private readonly CardService _cardService;
 
-        public DashboardForm(long userId, UserDto userDto,
-            UserService userService, CardService cardService)
+        public DashboardForm(UserService userService, CardService cardService)
         {
             InitializeComponent();
-            _userId = userId;
-            _userDto = userDto;
             _userService = userService;
             _cardService = cardService;
         }
@@ -27,10 +22,11 @@ namespace OnlineBankApp.Forms
 
         private void LoadUserInfo()
         {
-            txbFirstName.Text = _userDto.FirstName;
-            txbLastName.Text = _userDto.LastName;
-            txbCardNumber.Text = _userDto.CardNumber;
-            txbBalance.Text = _userDto.Balance.ToString();
+            txbFirstName.Text = AppSession.LoggedInUser!.FirstName;
+            txbLastName.Text = AppSession.LoggedInUser!.LastName;
+            txbCardNumber.Text = AppSession.LoggedInUser!.CardNumber;
+            txbBalance.Text = _cardService
+                .GetCardByNumber(txbCardNumber.Text).Balance.ToString();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -49,7 +45,7 @@ namespace OnlineBankApp.Forms
             {
                 try
                 {
-                    _userService.DeleteAccount(_userId);
+                    _userService.DeleteAccount(AppSession.LoggedInUser!.Id);
 
                     MessageBox.Show("Account deleted successfully!", "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -48,7 +48,7 @@ namespace OnlineBankApp.Forms
                 SaveSession(loggedInUser);
                 Hide();
 
-                var dashboardForm = new DashboardForm(loggedInUser.Id, loggedInUser, _userService, _cardService);
+                var dashboardForm = new DashboardForm(_userService, _cardService);
                 dashboardForm.StartPosition = FormStartPosition.CenterScreen;
                 dashboardForm.Show();
             }
@@ -73,10 +73,7 @@ namespace OnlineBankApp.Forms
 
         private void SaveSession(UserDto userDto)
         {
-            AppSession.UserId = userDto.Id;
-            AppSession.FullName = userDto.FullName;
-            AppSession.CardNumber = userDto.CardNumber;
-            AppSession.UserDto = userDto;
+            AppSession.LoggedInUser = userDto;
         }
     }
 }
