@@ -14,7 +14,7 @@ namespace OnlineBankApp.Services
             _context = context;
         }
 
-        public void EditProfileWithoutPassword(long id, UserDto userDto)
+        public void EditProfile(long id, UserDto userDto, string? newPassword = null)
         {
             var user = _context.Users
                 .FirstOrDefault(u => u.Id == id) ?? throw new Exception("User not found!");
@@ -22,26 +22,8 @@ namespace OnlineBankApp.Services
             user.FirstName = userDto.FirstName;
             user.LastName = userDto.LastName;
 
-            var existUser = _context.Users
-                .FirstOrDefault(u => u.Username.ToLower()
-                .Equals(userDto.Username.ToLower()) && u.Id != id);
-
-            if (existUser is not null)
-                throw new Exception("User is already exist!");
-
-            user.Username = userDto.Username;
-
-            _context.SaveChanges();
-        }
-
-        public void EditProfile(long id, string newPassword, UserDto userDto)
-        {
-            var user = _context.Users
-                .FirstOrDefault(u => u.Id == id) ?? throw new Exception("User not found!");
-
-            user.FirstName = userDto.FirstName;
-            user.LastName = userDto.LastName;
-            user.HashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword);
+            if (!string.IsNullOrEmpty(newPassword))
+                user.HashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword);
 
             var existUser = _context.Users
                 .FirstOrDefault(u => u.Username.ToLower()

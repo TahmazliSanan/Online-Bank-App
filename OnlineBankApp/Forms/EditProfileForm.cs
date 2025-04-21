@@ -62,11 +62,11 @@ namespace OnlineBankApp.Forms
 
                 if (string.IsNullOrWhiteSpace(newPassword))
                 {
-                    _userService.EditProfileWithoutPassword(AppSession.LoggedInUser!.Id, updatedUser);
+                    _userService.EditProfile(AppSession.LoggedInUser!.Id, updatedUser);
                 }
                 else
                 {
-                    _userService.EditProfile(AppSession.LoggedInUser!.Id, newPassword, updatedUser);
+                    _userService.EditProfile(AppSession.LoggedInUser!.Id, updatedUser, newPassword);
                 }
 
                 MessageBox.Show($"Your profile was updated successfully!", "Information",
