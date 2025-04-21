@@ -39,10 +39,10 @@ namespace OnlineBankApp.Forms
         {
             try
             {
-                string firstName = txbFirstName.Text;
-                string lastName = txbLastName.Text;
-                string username = txbUsername.Text;
-                string newPassword = txbNewPassword.Text;
+                string firstName = txbFirstName.Text.Trim();
+                string lastName = txbLastName.Text.Trim();
+                string username = txbUsername.Text.Trim();
+                string newPassword = txbNewPassword.Text.Trim();
 
                 if (string.IsNullOrWhiteSpace(firstName)
                     || string.IsNullOrWhiteSpace(lastName)

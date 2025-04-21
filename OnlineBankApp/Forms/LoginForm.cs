@@ -28,7 +28,7 @@ namespace OnlineBankApp.Forms
             try
             {
                 var username = txbUsername.Text.Trim();
-                var password = txbPassword.Text.Trim();
+                var password = txbPassword.Text;
 
                 if (string.IsNullOrWhiteSpace(username)
                     || string.IsNullOrWhiteSpace(password))

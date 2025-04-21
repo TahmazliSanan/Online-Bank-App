@@ -18,8 +18,8 @@ namespace OnlineBankApp.Forms
         {
             try
             {
-                var receiverCardNumber = txbCardNumber.Text;
-                var amount = txbAmount.Text;
+                var receiverCardNumber = txbCardNumber.Text.Trim();
+                var amount = txbAmount.Text.Trim();
 
                 if (string.IsNullOrWhiteSpace(receiverCardNumber)
                     || string.IsNullOrWhiteSpace(amount))
@@ -44,8 +44,8 @@ namespace OnlineBankApp.Forms
                 }
 
                 Hide();
-                var loginForm = new LoginForm(_userService, _cardService);
-                loginForm.Show();
+                var dashboardForm = new DashboardForm(_userService, _cardService);
+                dashboardForm.Show();
             }
             catch (Exception exception)
             {
