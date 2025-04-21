@@ -33,6 +33,7 @@
             lblWithdrawAmount = new Label();
             grbAmount = new GroupBox();
             txbAmount = new TextBox();
+            linkDashboard = new LinkLabel();
             grbAmount.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,11 +76,25 @@
             txbAmount.Size = new Size(230, 29);
             txbAmount.TabIndex = 0;
             // 
+            // linkDashboard
+            // 
+            linkDashboard.AutoSize = true;
+            linkDashboard.Font = new Font("Segoe UI", 12F);
+            linkDashboard.LinkBehavior = LinkBehavior.NeverUnderline;
+            linkDashboard.Location = new Point(166, 227);
+            linkDashboard.Name = "linkDashboard";
+            linkDashboard.Size = new Size(86, 21);
+            linkDashboard.TabIndex = 6;
+            linkDashboard.TabStop = true;
+            linkDashboard.Text = "Dashboard";
+            linkDashboard.LinkClicked += linkDashboard_LinkClicked;
+            // 
             // WithdrawAmountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(270, 217);
+            ClientSize = new Size(270, 257);
+            Controls.Add(linkDashboard);
             Controls.Add(btnWithdrawAmountFromCard);
             Controls.Add(lblWithdrawAmount);
             Controls.Add(grbAmount);
@@ -100,5 +115,6 @@
         private Label lblWithdrawAmount;
         private GroupBox grbAmount;
         private TextBox txbAmount;
+        private LinkLabel linkDashboard;
     }
 }

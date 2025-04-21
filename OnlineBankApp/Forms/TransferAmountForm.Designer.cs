@@ -35,6 +35,7 @@
             txbAmount = new TextBox();
             grbCardNumber = new GroupBox();
             txbCardNumber = new TextBox();
+            linkDashboard = new LinkLabel();
             grbAmount.SuspendLayout();
             grbCardNumber.SuspendLayout();
             SuspendLayout();
@@ -96,11 +97,25 @@
             txbCardNumber.Size = new Size(230, 29);
             txbCardNumber.TabIndex = 1;
             // 
+            // linkDashboard
+            // 
+            linkDashboard.AutoSize = true;
+            linkDashboard.Font = new Font("Segoe UI", 12F);
+            linkDashboard.LinkBehavior = LinkBehavior.NeverUnderline;
+            linkDashboard.Location = new Point(166, 310);
+            linkDashboard.Name = "linkDashboard";
+            linkDashboard.Size = new Size(86, 21);
+            linkDashboard.TabIndex = 5;
+            linkDashboard.TabStop = true;
+            linkDashboard.Text = "Dashboard";
+            linkDashboard.LinkClicked += linkDashboard_LinkClicked;
+            // 
             // TransferAmountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(270, 298);
+            ClientSize = new Size(270, 340);
+            Controls.Add(linkDashboard);
             Controls.Add(grbCardNumber);
             Controls.Add(btnTransferAmountBetweenTwoCards);
             Controls.Add(lblAddAmount);
@@ -126,5 +141,6 @@
         private TextBox txbAmount;
         private GroupBox grbCardNumber;
         private TextBox txbCardNumber;
+        private LinkLabel linkDashboard;
     }
 }

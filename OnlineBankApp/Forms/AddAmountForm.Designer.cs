@@ -33,6 +33,7 @@
             txbAmount = new TextBox();
             lblAddAmount = new Label();
             btnAddAmountToCard = new Button();
+            linkDashboard = new LinkLabel();
             grbAmount.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,11 +76,25 @@
             btnAddAmountToCard.UseVisualStyleBackColor = true;
             btnAddAmountToCard.Click += btnAddAmountToCard_Click;
             // 
+            // linkDashboard
+            // 
+            linkDashboard.AutoSize = true;
+            linkDashboard.Font = new Font("Segoe UI", 12F);
+            linkDashboard.LinkBehavior = LinkBehavior.NeverUnderline;
+            linkDashboard.Location = new Point(166, 227);
+            linkDashboard.Name = "linkDashboard";
+            linkDashboard.Size = new Size(86, 21);
+            linkDashboard.TabIndex = 3;
+            linkDashboard.TabStop = true;
+            linkDashboard.Text = "Dashboard";
+            linkDashboard.LinkClicked += linkDashboard_LinkClicked;
+            // 
             // AddAmountForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(270, 217);
+            ClientSize = new Size(270, 257);
+            Controls.Add(linkDashboard);
             Controls.Add(btnAddAmountToCard);
             Controls.Add(lblAddAmount);
             Controls.Add(grbAmount);
@@ -100,5 +115,6 @@
         private TextBox txbAmount;
         private Label lblAddAmount;
         private Button btnAddAmountToCard;
+        private LinkLabel linkDashboard;
     }
 }

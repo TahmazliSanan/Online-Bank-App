@@ -31,12 +31,12 @@ namespace OnlineBankApp.Forms
                 {
                     var cardDto = _cardService.AddAmountToCard(AppSession.CardNumber, amountAsDecimal);
 
-                    MessageBox.Show("Amount was added successfully! Please login again!", 
+                    MessageBox.Show("Amount was added successfully! Please login again!",
                         "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Invalid amount format! Please try again!", 
+                    MessageBox.Show("Invalid amount format! Please try again!",
                         "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -50,6 +50,14 @@ namespace OnlineBankApp.Forms
                 MessageBox.Show(exception.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void linkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Hide();
+            var dashboardForm = new DashboardForm(AppSession.UserId, AppSession.UserDto!, _userService, _cardService);
+            dashboardForm.StartPosition = FormStartPosition.CenterScreen;
+            dashboardForm.Show();
         }
     }
 }
