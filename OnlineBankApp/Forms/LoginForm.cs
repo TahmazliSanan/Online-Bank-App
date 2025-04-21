@@ -76,6 +76,7 @@ namespace OnlineBankApp.Forms
             AppSession.UserId = userDto.Id;
             AppSession.FullName = userDto.FullName;
             AppSession.CardNumber = userDto.CardNumber;
+            AppSession.UserDto = userDto;
         }
     }
 }
