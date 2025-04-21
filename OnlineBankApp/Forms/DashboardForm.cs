@@ -1,5 +1,4 @@
-﻿using OnlineBankApp.Dtos;
-using OnlineBankApp.Services;
+﻿using OnlineBankApp.Services;
 
 namespace OnlineBankApp.Forms
 {
@@ -31,6 +30,7 @@ namespace OnlineBankApp.Forms
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            AppSession.LoggedInUser = null;
             Hide();
             var loginForm = new LoginForm(_userService, _cardService);
             loginForm.Show();
@@ -121,6 +121,14 @@ namespace OnlineBankApp.Forms
             var transferAmountForm = new TransferAmountForm(_userService, _cardService);
             transferAmountForm.StartPosition = FormStartPosition.CenterScreen;
             transferAmountForm.Show();
+        }
+
+        private void btnEditProfile_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var editProfileForm = new EditProfileForm(_userService, _cardService);
+            editProfileForm.StartPosition = FormStartPosition.CenterScreen;
+            editProfileForm.Show();
         }
     }
 }

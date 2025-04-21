@@ -102,6 +102,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "WithdrawAmountForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MovaBank";
             grbAmount.ResumeLayout(false);
             grbAmount.PerformLayout();

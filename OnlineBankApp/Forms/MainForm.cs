@@ -50,7 +50,7 @@ namespace OnlineBankApp.Forms
                     Password = password
                 };
 
-                var registeredUser = _userService.RegisterUser(registerDto);
+                _userService.RegisterUser(registerDto);
 
                 MessageBox.Show($"Registration completed! You can see your card number in dashboard!",
                 "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);

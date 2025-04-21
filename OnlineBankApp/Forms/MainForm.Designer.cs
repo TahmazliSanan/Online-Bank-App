@@ -173,7 +173,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainForm";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MovaBank";
             grbFirstName.ResumeLayout(false);
             grbFirstName.PerformLayout();

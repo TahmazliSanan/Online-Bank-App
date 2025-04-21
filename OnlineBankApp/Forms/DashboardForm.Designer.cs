@@ -245,6 +245,7 @@
             btnEditProfile.TabIndex = 3;
             btnEditProfile.Text = "Edit Profile";
             btnEditProfile.UseVisualStyleBackColor = false;
+            btnEditProfile.Click += btnEditProfile_Click;
             btnEditProfile.MouseEnter += btnEditProfile_MouseEnter;
             btnEditProfile.MouseLeave += btnEditProfile_MouseLeave;
             // 
@@ -261,6 +262,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "DashboardForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MovaBank";
             Load += DashboardForm_Load;
             grbOperations.ResumeLayout(false);
