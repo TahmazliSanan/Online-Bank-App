@@ -13,6 +13,23 @@ namespace OnlineBankApp.Services
             _context = context;
         }
 
+        public CardDto GetCardByNumber(string cardNumber)
+        {
+            var card = _context.Cards
+                .Include(c => c.User)
+                .FirstOrDefault(c => c.Number.ToLower()
+                .Equals(cardNumber.ToLower())) ?? throw new Exception("Card number is not valid!");
+
+            return new CardDto
+            {
+                Id = card.Id,
+                OwnerFullName = $"{card.User!.FirstName} {card.User!.LastName}",
+                OwnerUsername = card.User!.Username,
+                Number = cardNumber,
+                Balance = card.Balance
+            };
+        }
+
         public CardDto TransferAmountBetweenTwoCards(string senderCardNumber,
             string receiverCardNumber, decimal amount)
         {
