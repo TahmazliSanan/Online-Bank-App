@@ -29,10 +29,10 @@ namespace OnlineBankApp.Forms
 
                 if (decimal.TryParse(amount, out decimal amountAsDecimal))
                 {
-                    var cardDto = _cardService.AddAmountToCard(AppSession.CardNumber, amountAsDecimal);
+                    var cardDto = _cardService.AddAmountToCard(AppSession.LoggedInUser!.CardNumber, amountAsDecimal);
 
-                    MessageBox.Show("Amount was added successfully! Please login again!",
-                        "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Amount was added successfully!", "Information", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace OnlineBankApp.Forms
                 }
 
                 Hide();
-                var loginForm = new LoginForm(_userService, _cardService);
+                var loginForm = new DashboardForm(_userService, _cardService);
                 loginForm.Show();
             }
             catch (Exception exception)
@@ -55,7 +55,7 @@ namespace OnlineBankApp.Forms
         private void linkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-            var dashboardForm = new DashboardForm(AppSession.UserId, AppSession.UserDto!, _userService, _cardService);
+            var dashboardForm = new DashboardForm(_userService, _cardService);
             dashboardForm.StartPosition = FormStartPosition.CenterScreen;
             dashboardForm.Show();
         }

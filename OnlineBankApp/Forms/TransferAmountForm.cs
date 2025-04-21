@@ -31,10 +31,10 @@ namespace OnlineBankApp.Forms
 
                 if (decimal.TryParse(amount, out decimal amountAsDecimal))
                 {
-                    var cardDto = _cardService.TransferAmountBetweenTwoCards(AppSession.CardNumber, receiverCardNumber, amountAsDecimal);
+                    var cardDto = _cardService.TransferAmountBetweenTwoCards(AppSession.LoggedInUser!.CardNumber, receiverCardNumber, amountAsDecimal);
 
-                    MessageBox.Show("Amount was transferred successfully! Please login again!",
-                        "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Amount was transferred successfully!", "Information", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -57,7 +57,7 @@ namespace OnlineBankApp.Forms
         private void linkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-            var dashboardForm = new DashboardForm(AppSession.UserId, AppSession.UserDto!, _userService, _cardService);
+            var dashboardForm = new DashboardForm(_userService, _cardService);
             dashboardForm.StartPosition = FormStartPosition.CenterScreen;
             dashboardForm.Show();
         }
