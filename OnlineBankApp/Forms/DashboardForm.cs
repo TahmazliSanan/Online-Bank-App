@@ -39,7 +39,7 @@ namespace OnlineBankApp.Forms
         private void btnDeleteAccount_Click(object sender, EventArgs e)
         {
             var confirm = MessageBox.Show("Are you sure?",
-                "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirm == DialogResult.Yes)
             {
