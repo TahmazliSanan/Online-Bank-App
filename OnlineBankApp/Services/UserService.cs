@@ -43,7 +43,7 @@ namespace OnlineBankApp.Services
                 LastName = loggedInUser.LastName,
                 Username = loggedInUser.Username,
                 CardNumber = loggedInUser.Card!.Number,
-                Balance = loggedInUser.Card.Balance,
+                Balance = loggedInUser.Card.Balance
             };
         }
 
@@ -63,7 +63,7 @@ namespace OnlineBankApp.Services
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Username = dto.Username,
-                HashedPassword = hashedPassword,
+                HashedPassword = hashedPassword
             };
 
             var card = new Card
