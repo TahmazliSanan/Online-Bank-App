@@ -21,15 +21,24 @@ namespace OnlineBankApp.Forms
                 var amount = txbAmount.Text;
 
                 if (string.IsNullOrWhiteSpace(amount))
+                {
                     MessageBox.Show("Field cannot be empty!", "Warning",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 if (decimal.TryParse(amount, out decimal amountAsDecimal))
                 {
                     var cardDto = _cardService.AddAmountToCard(AppSession.CardNumber, amountAsDecimal);
 
-                    MessageBox.Show("Amount was added successfully! Please login again", "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Amount was added successfully! Please login again!", 
+                        "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid amount format! Please try again!", 
+                        "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
                 Hide();

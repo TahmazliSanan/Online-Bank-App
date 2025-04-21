@@ -73,6 +73,7 @@
             btnTransferAmount.TabIndex = 2;
             btnTransferAmount.Text = "Transfer";
             btnTransferAmount.UseVisualStyleBackColor = true;
+            btnTransferAmount.Click += btnTransferAmount_Click;
             // 
             // btnWithdrawAmount
             // 

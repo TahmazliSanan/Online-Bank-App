@@ -118,5 +118,13 @@ namespace OnlineBankApp.Forms
             withdrawAmountForm.StartPosition = FormStartPosition.CenterScreen;
             withdrawAmountForm.Show();
         }
+
+        private void btnTransferAmount_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var transferAmountForm = new TransferAmountForm(_userService, _cardService);
+            transferAmountForm.StartPosition = FormStartPosition.CenterScreen;
+            transferAmountForm.Show();
+        }
     }
 }

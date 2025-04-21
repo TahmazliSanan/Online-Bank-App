@@ -33,8 +33,8 @@ namespace OnlineBankApp.Forms
                 if (string.IsNullOrWhiteSpace(username)
                     || string.IsNullOrWhiteSpace(password))
                 {
-                    MessageBox.Show("Fields cannot be empty!", "Warning",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Fields cannot be empty! Please try again!", 
+                        "Warning",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
