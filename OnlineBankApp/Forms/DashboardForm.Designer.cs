@@ -83,6 +83,7 @@
             btnWithdrawAmount.TabIndex = 1;
             btnWithdrawAmount.Text = "Withdraw";
             btnWithdrawAmount.UseVisualStyleBackColor = true;
+            btnWithdrawAmount.Click += btnWithdrawAmount_Click;
             // 
             // btnAddAmount
             // 

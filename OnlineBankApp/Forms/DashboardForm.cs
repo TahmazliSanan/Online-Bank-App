@@ -110,5 +110,13 @@ namespace OnlineBankApp.Forms
             addAmountForm.StartPosition = FormStartPosition.CenterScreen;
             addAmountForm.Show();
         }
+
+        private void btnWithdrawAmount_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var withdrawAmountForm = new WithdrawAmountForm(_userService, _cardService);
+            withdrawAmountForm.StartPosition = FormStartPosition.CenterScreen;
+            withdrawAmountForm.Show();
+        }
     }
 }
