@@ -42,6 +42,7 @@ namespace OnlineBankApp.Forms
                 string firstName = txbFirstName.Text;
                 string lastName = txbLastName.Text;
                 string username = txbUsername.Text;
+                string newPassword = txbNewPassword.Text;
 
                 if (string.IsNullOrWhiteSpace(firstName)
                     || string.IsNullOrWhiteSpace(lastName)
@@ -59,7 +60,14 @@ namespace OnlineBankApp.Forms
                     Username = username
                 };
 
-                _userService.EditProfile(AppSession.LoggedInUser!.Id, updatedUser);
+                if (string.IsNullOrWhiteSpace(newPassword))
+                {
+                    _userService.EditProfileWithoutPassword(AppSession.LoggedInUser!.Id, updatedUser);
+                }
+                else
+                {
+                    _userService.EditProfile(AppSession.LoggedInUser!.Id, newPassword, updatedUser);
+                }
 
                 MessageBox.Show($"Your profile was updated successfully!", "Information",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

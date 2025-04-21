@@ -32,15 +32,15 @@
             linkLogin = new LinkLabel();
             btnSave = new Button();
             lblRegistration = new Label();
-            grbPassword = new GroupBox();
-            txbPassword = new TextBox();
+            grbNewPassword = new GroupBox();
+            txbNewPassword = new TextBox();
             grbUsername = new GroupBox();
             txbUsername = new TextBox();
             grbLastName = new GroupBox();
             txbLastName = new TextBox();
             grbFirstName = new GroupBox();
             txbFirstName = new TextBox();
-            grbPassword.SuspendLayout();
+            grbNewPassword.SuspendLayout();
             grbUsername.SuspendLayout();
             grbLastName.SuspendLayout();
             grbFirstName.SuspendLayout();
@@ -82,24 +82,24 @@
             lblRegistration.TabIndex = 11;
             lblRegistration.Text = "EDIT PROFILE";
             // 
-            // grbPassword
+            // grbNewPassword
             // 
-            grbPassword.Controls.Add(txbPassword);
-            grbPassword.Location = new Point(255, 165);
-            grbPassword.Name = "grbPassword";
-            grbPassword.Size = new Size(216, 58);
-            grbPassword.TabIndex = 10;
-            grbPassword.TabStop = false;
-            grbPassword.Text = "Password";
+            grbNewPassword.Controls.Add(txbNewPassword);
+            grbNewPassword.Location = new Point(255, 165);
+            grbNewPassword.Name = "grbNewPassword";
+            grbNewPassword.Size = new Size(216, 58);
+            grbNewPassword.TabIndex = 10;
+            grbNewPassword.TabStop = false;
+            grbNewPassword.Text = "New Password";
             // 
-            // txbPassword
+            // txbNewPassword
             // 
-            txbPassword.Font = new Font("Segoe UI", 12F);
-            txbPassword.Location = new Point(6, 22);
-            txbPassword.Name = "txbPassword";
-            txbPassword.Size = new Size(204, 29);
-            txbPassword.TabIndex = 0;
-            txbPassword.UseSystemPasswordChar = true;
+            txbNewPassword.Font = new Font("Segoe UI", 12F);
+            txbNewPassword.Location = new Point(6, 22);
+            txbNewPassword.Name = "txbNewPassword";
+            txbNewPassword.Size = new Size(204, 29);
+            txbNewPassword.TabIndex = 0;
+            txbNewPassword.UseSystemPasswordChar = true;
             // 
             // grbUsername
             // 
@@ -163,7 +163,7 @@
             Controls.Add(linkLogin);
             Controls.Add(btnSave);
             Controls.Add(lblRegistration);
-            Controls.Add(grbPassword);
+            Controls.Add(grbNewPassword);
             Controls.Add(grbUsername);
             Controls.Add(grbLastName);
             Controls.Add(grbFirstName);
@@ -174,8 +174,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MovaBank";
             Load += EditProfileForm_Load;
-            grbPassword.ResumeLayout(false);
-            grbPassword.PerformLayout();
+            grbNewPassword.ResumeLayout(false);
+            grbNewPassword.PerformLayout();
             grbUsername.ResumeLayout(false);
             grbUsername.PerformLayout();
             grbLastName.ResumeLayout(false);
@@ -191,8 +191,8 @@
         private LinkLabel linkLogin;
         private Button btnSave;
         private Label lblRegistration;
-        private GroupBox grbPassword;
-        private TextBox txbPassword;
+        private GroupBox grbNewPassword;
+        private TextBox txbNewPassword;
         private GroupBox grbUsername;
         private TextBox txbUsername;
         private GroupBox grbLastName;
