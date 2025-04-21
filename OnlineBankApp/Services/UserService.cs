@@ -14,6 +14,26 @@ namespace OnlineBankApp.Services
             _context = context;
         }
 
+        public void EditProfile(long id, UserDto userDto)
+        {
+            var user = _context.Users
+                .FirstOrDefault(u => u.Id == id) ?? throw new Exception("User not found!");
+
+            user.FirstName = userDto.FirstName;
+            user.LastName = userDto.LastName;
+
+            var existUser = _context.Users
+                .FirstOrDefault(u => u.Username.ToLower()
+                .Equals(userDto.Username.ToLower()) && u.Id != id);
+
+            if (existUser is not null)
+                throw new Exception("User is already exist!");
+
+            user.Username = userDto.Username;
+
+            _context.SaveChanges();
+        }
+
         public void DeleteAccount(long id)
         {
             var user = _context.Users
@@ -34,7 +54,7 @@ namespace OnlineBankApp.Services
                 .Verify(dto.Password, loggedInUser.HashedPassword);
 
             if (!isPasswordMatch)
-                throw new Exception("Password is not correct!");
+                throw new Exception("Password is not correct! Please try again!");
 
             return new UserDto
             {
@@ -47,14 +67,14 @@ namespace OnlineBankApp.Services
             };
         }
 
-        public UserDto RegisterUser(RegisterDto dto)
+        public void RegisterUser(RegisterDto dto)
         {
             var registeredUser = _context.Users
                 .FirstOrDefault(u => u.Username.ToLower()
                 .Equals(dto.Username.ToLower()));
 
             if (registeredUser is not null)
-                throw new Exception("User is already registered!");
+                throw new Exception("User is already registered! Please try again!");
 
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
@@ -76,13 +96,6 @@ namespace OnlineBankApp.Services
             _context.Users.Add(newUser);
             _context.Cards.Add(card);
             _context.SaveChanges();
-
-            return new UserDto
-            {
-                Id = newUser.Id,
-                Username = newUser.Username,
-                CardNumber = card.Number
-            };
         }
 
         private string GenerateCardNumber()
