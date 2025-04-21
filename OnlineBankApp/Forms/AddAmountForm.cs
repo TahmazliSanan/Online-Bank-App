@@ -28,7 +28,7 @@ namespace OnlineBankApp.Forms
                 {
                     var cardDto = _cardService.AddAmountToCard(AppSession.CardNumber, amountAsDecimal);
 
-                    MessageBox.Show("Amount added successfully! Please login again", "Information",
+                    MessageBox.Show("Amount was added successfully! Please login again", "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
