@@ -8,7 +8,7 @@ namespace OnlineBankApp.Entities
         public string? ReceiverCardNumber { get; set; }
         public TransactionType Type { get; set; }
         public DateTime ProcessedDate { get; set; }
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         public User? User { get; set; }
     }
 }
