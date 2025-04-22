@@ -27,6 +27,11 @@ namespace OnlineBankApp.DataAccess.Configs
                .HasForeignKey<Card>(c => c.UserId)
                .OnDelete(DeleteBehavior.Cascade);
 
+            builder.HasMany(u => u.Transactions)
+                .WithOne(t => t.User)
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.ToTable("users");
         }
     }
