@@ -23,6 +23,7 @@ namespace OnlineBankApp.Forms
         {
             txbFirstName.Text = AppSession.LoggedInUser!.FirstName;
             txbLastName.Text = AppSession.LoggedInUser!.LastName;
+            txbUsername.Text = AppSession.LoggedInUser!.Username;
             txbCardNumber.Text = AppSession.LoggedInUser!.CardNumber;
             txbBalance.Text = _cardService
                 .GetCardByNumber(txbCardNumber.Text).Balance.ToString();
@@ -129,6 +130,18 @@ namespace OnlineBankApp.Forms
             var editProfileForm = new EditProfileForm(_userService, _cardService);
             editProfileForm.StartPosition = FormStartPosition.CenterScreen;
             editProfileForm.Show();
+        }
+
+        private void btnMyTransactions_MouseEnter(object sender, EventArgs e)
+        {
+            btnMyTransactions.BackColor = Color.DarkCyan;
+            btnMyTransactions.ForeColor = Color.White;
+        }
+
+        private void btnMyTransactions_MouseLeave(object sender, EventArgs e)
+        {
+            btnMyTransactions.BackColor = Color.White;
+            btnMyTransactions.ForeColor = Color.DarkCyan;
         }
     }
 }
