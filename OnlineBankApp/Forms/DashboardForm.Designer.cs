@@ -36,6 +36,8 @@
             btnAddAmount = new Button();
             label1 = new Label();
             grbAboutMe = new GroupBox();
+            txbUsername = new TextBox();
+            label2 = new Label();
             txbBalance = new TextBox();
             lblBalance = new Label();
             txbCardNumber = new TextBox();
@@ -49,8 +51,6 @@
             btnDeleteAccount = new Button();
             btnLogout = new Button();
             btnEditProfile = new Button();
-            txbUsername = new TextBox();
-            label2 = new Label();
             grbOperations.SuspendLayout();
             grbAboutMe.SuspendLayout();
             grbSettings.SuspendLayout();
@@ -141,10 +141,29 @@
             grbAboutMe.TabStop = false;
             grbAboutMe.Text = "About Me";
             // 
+            // txbUsername
+            // 
+            txbUsername.Font = new Font("Segoe UI", 12F);
+            txbUsername.Location = new Point(120, 129);
+            txbUsername.Name = "txbUsername";
+            txbUsername.ReadOnly = true;
+            txbUsername.Size = new Size(171, 29);
+            txbUsername.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(6, 132);
+            label2.Name = "label2";
+            label2.Size = new Size(84, 21);
+            label2.TabIndex = 8;
+            label2.Text = "Username:";
+            // 
             // txbBalance
             // 
             txbBalance.Font = new Font("Segoe UI", 12F);
-            txbBalance.Location = new Point(120, 203);
+            txbBalance.Location = new Point(120, 226);
             txbBalance.Name = "txbBalance";
             txbBalance.ReadOnly = true;
             txbBalance.Size = new Size(171, 29);
@@ -154,7 +173,7 @@
             // 
             lblBalance.AutoSize = true;
             lblBalance.Font = new Font("Segoe UI", 12F);
-            lblBalance.Location = new Point(6, 206);
+            lblBalance.Location = new Point(6, 229);
             lblBalance.Name = "lblBalance";
             lblBalance.Size = new Size(66, 21);
             lblBalance.TabIndex = 6;
@@ -163,7 +182,7 @@
             // txbCardNumber
             // 
             txbCardNumber.Font = new Font("Segoe UI", 12F);
-            txbCardNumber.Location = new Point(120, 159);
+            txbCardNumber.Location = new Point(120, 178);
             txbCardNumber.Name = "txbCardNumber";
             txbCardNumber.ReadOnly = true;
             txbCardNumber.Size = new Size(171, 29);
@@ -173,7 +192,7 @@
             // 
             lblCardNumber.AutoSize = true;
             lblCardNumber.Font = new Font("Segoe UI", 12F);
-            lblCardNumber.Location = new Point(6, 159);
+            lblCardNumber.Location = new Point(6, 178);
             lblCardNumber.Name = "lblCardNumber";
             lblCardNumber.Size = new Size(108, 21);
             lblCardNumber.TabIndex = 4;
@@ -182,7 +201,7 @@
             // txbLastName
             // 
             txbLastName.Font = new Font("Segoe UI", 12F);
-            txbLastName.Location = new Point(120, 71);
+            txbLastName.Location = new Point(120, 80);
             txbLastName.Name = "txbLastName";
             txbLastName.ReadOnly = true;
             txbLastName.Size = new Size(171, 29);
@@ -192,7 +211,7 @@
             // 
             lblLastName.AutoSize = true;
             lblLastName.Font = new Font("Segoe UI", 12F);
-            lblLastName.Location = new Point(6, 74);
+            lblLastName.Location = new Point(6, 83);
             lblLastName.Name = "lblLastName";
             lblLastName.Size = new Size(87, 21);
             lblLastName.TabIndex = 2;
@@ -201,7 +220,7 @@
             // txbFirstName
             // 
             txbFirstName.Font = new Font("Segoe UI", 12F);
-            txbFirstName.Location = new Point(120, 28);
+            txbFirstName.Location = new Point(120, 34);
             txbFirstName.Name = "txbFirstName";
             txbFirstName.ReadOnly = true;
             txbFirstName.Size = new Size(171, 29);
@@ -211,7 +230,7 @@
             // 
             lblFirstName.AutoSize = true;
             lblFirstName.Font = new Font("Segoe UI", 12F);
-            lblFirstName.Location = new Point(6, 31);
+            lblFirstName.Location = new Point(6, 37);
             lblFirstName.Name = "lblFirstName";
             lblFirstName.Size = new Size(89, 21);
             lblFirstName.TabIndex = 0;
@@ -288,25 +307,6 @@
             btnEditProfile.Click += btnEditProfile_Click;
             btnEditProfile.MouseEnter += btnEditProfile_MouseEnter;
             btnEditProfile.MouseLeave += btnEditProfile_MouseLeave;
-            // 
-            // txbUsername
-            // 
-            txbUsername.Font = new Font("Segoe UI", 12F);
-            txbUsername.Location = new Point(120, 115);
-            txbUsername.Name = "txbUsername";
-            txbUsername.ReadOnly = true;
-            txbUsername.Size = new Size(171, 29);
-            txbUsername.TabIndex = 9;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(6, 118);
-            label2.Name = "label2";
-            label2.Size = new Size(84, 21);
-            label2.TabIndex = 8;
-            label2.Text = "Username:";
             // 
             // DashboardForm
             // 
