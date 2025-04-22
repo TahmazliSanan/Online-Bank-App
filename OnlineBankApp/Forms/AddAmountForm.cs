@@ -29,7 +29,7 @@ namespace OnlineBankApp.Forms
 
                 if (decimal.TryParse(amount, out decimal amountAsDecimal))
                 {
-                    var cardDto = _cardService.AddAmountToCard(AppSession.LoggedInUser!.CardNumber, amountAsDecimal);
+                    _cardService.AddAmountToCard(AppSession.LoggedInUser!.CardNumber, amountAsDecimal);
 
                     MessageBox.Show("Amount was added successfully!", "Information", 
                         MessageBoxButtons.OK, MessageBoxIcon.Information);

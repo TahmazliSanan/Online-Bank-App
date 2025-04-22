@@ -29,7 +29,7 @@ namespace OnlineBankApp.Forms
 
                 if (decimal.TryParse(amount, out decimal amountAsDecimal))
                 {
-                    var cardDto = _cardService.WithdrawAmountFromCard(AppSession.LoggedInUser!.CardNumber, amountAsDecimal);
+                    _cardService.WithdrawAmountFromCard(AppSession.LoggedInUser!.CardNumber, amountAsDecimal);
 
                     MessageBox.Show("Amount was withdrew successfully!", "Information", 
                         MessageBoxButtons.OK, MessageBoxIcon.Information);

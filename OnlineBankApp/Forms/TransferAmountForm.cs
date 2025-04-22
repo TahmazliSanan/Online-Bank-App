@@ -31,7 +31,7 @@ namespace OnlineBankApp.Forms
 
                 if (decimal.TryParse(amount, out decimal amountAsDecimal))
                 {
-                    var cardDto = _cardService.TransferAmountBetweenTwoCards(AppSession.LoggedInUser!.CardNumber, receiverCardNumber, amountAsDecimal);
+                    _cardService.TransferAmountBetweenTwoCards(AppSession.LoggedInUser!.CardNumber, receiverCardNumber, amountAsDecimal);
 
                     MessageBox.Show("Amount was transferred successfully!", "Information", 
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
