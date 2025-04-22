@@ -26,7 +26,8 @@ namespace OnlineBankApp.Forms
             txbUsername.Text = AppSession.LoggedInUser!.Username;
             txbCardNumber.Text = AppSession.LoggedInUser!.CardNumber;
             txbBalance.Text = _cardService
-                .GetCardByNumber(txbCardNumber.Text).Balance.ToString();
+                .GetCardByNumber(txbCardNumber.Text).Balance
+                .ToString("0.00");
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
