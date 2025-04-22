@@ -7,5 +7,6 @@
         public string Username { get; set; } = string.Empty;
         public string HashedPassword { get; set; } = string.Empty;
         public Card? Card { get; set; }
+        public IEnumerable<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }
