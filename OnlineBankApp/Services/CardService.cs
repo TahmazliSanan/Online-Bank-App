@@ -3,6 +3,7 @@ using OnlineBankApp.DataAccess.DataContext;
 using OnlineBankApp.Dtos;
 using OnlineBankApp.Entities;
 using OnlineBankApp.Enums;
+using System.Text.RegularExpressions;
 
 namespace OnlineBankApp.Services
 {
@@ -37,6 +38,8 @@ namespace OnlineBankApp.Services
         {
             if (senderCardNumber.ToLower().Equals(receiverCardNumber.ToLower()))
                 throw new Exception("Cannot transfer to the same card!");
+
+            ValidateAmount(amount.ToString().Trim());
 
             var senderCard = _context.Cards
                 .Include(c => c.User)
@@ -77,6 +80,8 @@ namespace OnlineBankApp.Services
                 .FirstOrDefault(c => c.Number.ToLower()
                 .Equals(cardNumber.ToLower())) ?? throw new Exception("Card number is not valid!");
 
+            ValidateAmount(amount.ToString().Trim());
+
             if (amount <= 0)
                 throw new Exception("Amount cannot be less than or equal to zero!");
 
@@ -104,6 +109,8 @@ namespace OnlineBankApp.Services
                 .FirstOrDefault(c => c.Number.ToLower()
                 .Equals(cardNumber.ToLower())) ?? throw new Exception("Card number is not valid!");
 
+            ValidateAmount(amount.ToString().Trim());
+
             if (amount <= 0)
                 throw new Exception("Amount cannot be less than or equal to zero!");
 
@@ -119,6 +126,14 @@ namespace OnlineBankApp.Services
 
             _context.Transactions.Add(transaction);
             _context.SaveChanges();
+        }
+
+        private void ValidateAmount(string inputAmount)
+        {
+            var regex = new Regex(@"^\d+(\.\d{1,2})?$");
+
+            if (!regex.IsMatch(inputAmount))
+                throw new Exception("Amount must be a number with up to 2 decimal places!");
         }
     }
 }
