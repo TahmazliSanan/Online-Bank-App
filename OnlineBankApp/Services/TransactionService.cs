@@ -13,7 +13,7 @@ namespace OnlineBankApp.Services
             _context = context;
         }
 
-        public List<ReportDto> GetTransactions(int userId)
+        public List<ReportDto> GetTransactions(long userId)
         {
             var transactions = _context.Transactions
                 .Include(t => t.User)
