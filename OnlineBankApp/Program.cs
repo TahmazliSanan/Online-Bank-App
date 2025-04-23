@@ -19,10 +19,12 @@ namespace OnlineBankApp
             
             builder.AddScoped<UserService>();
             builder.AddScoped<CardService>();
+            builder.AddScoped<TransactionService>();
             
             var serviceProvider = builder.BuildServiceProvider();
             var userService = serviceProvider.GetRequiredService<UserService>();
             var cardService = serviceProvider.GetRequiredService<CardService>();
+            var transactionService = serviceProvider.GetRequiredService<TransactionService>();
 
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginForm(userService, cardService));
