@@ -23,7 +23,8 @@ namespace OnlineBankApp.Reports
                 page.DefaultTextStyle(x => x.FontSize(12));
 
                 page.Header().Border(1).PaddingBottom(20)
-                .Text("MY TRANSACTION REPORT").FontSize(20).Bold().AlignCenter();
+                .Text($"{AppSession.LoggedInUser!.Username.ToUpper()} - TRANSACTION REPORT")
+                .FontSize(20).Bold().AlignCenter();
 
                 page.Content().Table(table =>
                 {
