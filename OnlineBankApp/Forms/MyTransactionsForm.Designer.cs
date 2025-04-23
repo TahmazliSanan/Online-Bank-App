@@ -73,6 +73,7 @@
             Controls.Add(lblMyTransactions);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "MyTransactionsForm";
             Text = "MovaBank";
             Load += MyTransactionsForm_Load;
