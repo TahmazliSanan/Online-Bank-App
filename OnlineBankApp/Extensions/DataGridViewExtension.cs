@@ -15,6 +15,7 @@
             dataGridView.DefaultCellStyle.BackColor = Color.White;
             dataGridView.DefaultCellStyle.SelectionBackColor = Color.LightSteelBlue;
             dataGridView.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView.RowTemplate.Height = 35;
             dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255);
             dataGridView.GridColor = Color.LightGray;

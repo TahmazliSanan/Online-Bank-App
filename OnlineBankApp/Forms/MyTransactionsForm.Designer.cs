@@ -64,6 +64,7 @@
             dgvMyTransactions.Name = "dgvMyTransactions";
             dgvMyTransactions.Size = new Size(799, 394);
             dgvMyTransactions.TabIndex = 0;
+            dgvMyTransactions.CellFormatting += dgvMyTransactions_CellFormatting;
             // 
             // linkDashboard
             // 

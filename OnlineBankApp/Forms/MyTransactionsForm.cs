@@ -9,7 +9,7 @@ namespace OnlineBankApp.Forms
         private readonly CardService _cardService;
         private readonly TransactionService _transactionService;
 
-        public MyTransactionsForm(UserService userService, CardService cardService, 
+        public MyTransactionsForm(UserService userService, CardService cardService,
             TransactionService transactionService)
         {
             InitializeComponent();
@@ -42,6 +42,19 @@ namespace OnlineBankApp.Forms
             var dashboardForm = new DashboardForm(_userService, _cardService, _transactionService);
             dashboardForm.StartPosition = FormStartPosition.CenterScreen;
             dashboardForm.Show();
+        }
+
+        private void dgvMyTransactions_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+
+            var value = e.Value;
+
+            if (value is null || string.IsNullOrWhiteSpace(value.ToString()))
+            {
+                e.Value = "-";
+                e.FormattingApplied = true;
+            }
         }
     }
 }
