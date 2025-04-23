@@ -27,7 +27,7 @@ namespace OnlineBankApp
             var transactionService = serviceProvider.GetRequiredService<TransactionService>();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm(userService, cardService));
+            Application.Run(new LoginForm(userService, cardService, transactionService));
         }
     }
 }

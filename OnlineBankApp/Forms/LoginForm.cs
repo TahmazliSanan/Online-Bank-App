@@ -7,18 +7,20 @@ namespace OnlineBankApp.Forms
     {
         private readonly UserService _userService;
         private readonly CardService _cardService;
+        private readonly TransactionService _transactionService;
 
-        public LoginForm(UserService userService, CardService cardService)
+        public LoginForm(UserService userService, CardService cardService, TransactionService transactionService)
         {
             InitializeComponent();
             _userService = userService;
             _cardService = cardService;
+            _transactionService = transactionService;
         }
 
         private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-            var mainForm = new MainForm(_userService, _cardService);
+            var mainForm = new MainForm(_userService, _cardService, _transactionService);
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             mainForm.Show();
         }
@@ -48,7 +50,7 @@ namespace OnlineBankApp.Forms
                 SaveSession(loggedInUser);
                 Hide();
 
-                var dashboardForm = new DashboardForm(_userService, _cardService);
+                var dashboardForm = new DashboardForm(_userService, _cardService, _transactionService);
                 dashboardForm.StartPosition = FormStartPosition.CenterScreen;
                 dashboardForm.Show();
             }

@@ -260,6 +260,7 @@
             btnMyTransactions.TabIndex = 6;
             btnMyTransactions.Text = "My Transactions";
             btnMyTransactions.UseVisualStyleBackColor = false;
+            btnMyTransactions.Click += btnMyTransactions_Click;
             btnMyTransactions.MouseEnter += btnMyTransactions_MouseEnter;
             btnMyTransactions.MouseLeave += btnMyTransactions_MouseLeave;
             // 

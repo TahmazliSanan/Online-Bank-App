@@ -7,18 +7,21 @@ namespace OnlineBankApp.Forms
     {
         private readonly UserService _userService;
         private readonly CardService _cardService;
+        private readonly TransactionService _transactionService;
 
-        public EditProfileForm(UserService userService, CardService cardService)
+        public EditProfileForm(UserService userService, CardService cardService, 
+            TransactionService transactionService)
         {
             InitializeComponent();
             _userService = userService;
             _cardService = cardService;
+            _transactionService = transactionService;
         }
 
         private void linkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-            var dashboardForm = new DashboardForm(_userService, _cardService);
+            var dashboardForm = new DashboardForm(_userService, _cardService, _transactionService);
             dashboardForm.StartPosition = FormStartPosition.CenterScreen;
             dashboardForm.Show();
         }
@@ -73,7 +76,7 @@ namespace OnlineBankApp.Forms
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Hide();
 
-                var loginForm = new LoginForm(_userService, _cardService);
+                var loginForm = new LoginForm(_userService, _cardService, _transactionService);
                 loginForm.StartPosition = FormStartPosition.CenterScreen;
                 loginForm.Show();
             }

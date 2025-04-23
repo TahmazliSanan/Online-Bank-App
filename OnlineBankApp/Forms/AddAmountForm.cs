@@ -6,12 +6,15 @@ namespace OnlineBankApp.Forms
     {
         private readonly UserService _userService;
         private readonly CardService _cardService;
+        private readonly TransactionService _transactionService;
 
-        public AddAmountForm(UserService userService, CardService cardService)
+        public AddAmountForm(UserService userService, CardService cardService, 
+            TransactionService transactionService)
         {
             InitializeComponent();
             _userService = userService;
             _cardService = cardService;
+            _transactionService = transactionService;
         }
 
         private void btnAddAmountToCard_Click(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace OnlineBankApp.Forms
                 }
 
                 Hide();
-                var dashboardForm = new DashboardForm(_userService, _cardService);
+                var dashboardForm = new DashboardForm(_userService, _cardService, _transactionService);
                 dashboardForm.Show();
             }
             catch (Exception exception)
@@ -55,7 +58,7 @@ namespace OnlineBankApp.Forms
         private void linkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
-            var dashboardForm = new DashboardForm(_userService, _cardService);
+            var dashboardForm = new DashboardForm(_userService, _cardService, _transactionService);
             dashboardForm.StartPosition = FormStartPosition.CenterScreen;
             dashboardForm.Show();
         }

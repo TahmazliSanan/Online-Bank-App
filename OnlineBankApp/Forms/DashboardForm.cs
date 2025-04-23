@@ -6,12 +6,15 @@ namespace OnlineBankApp.Forms
     {
         private readonly UserService _userService;
         private readonly CardService _cardService;
+        private readonly TransactionService _transactionService;
 
-        public DashboardForm(UserService userService, CardService cardService)
+        public DashboardForm(UserService userService, CardService cardService, 
+            TransactionService transactionService)
         {
             InitializeComponent();
             _userService = userService;
             _cardService = cardService;
+            _transactionService = transactionService;
         }
 
         private void DashboardForm_Load(object sender, EventArgs e)
@@ -34,7 +37,7 @@ namespace OnlineBankApp.Forms
         {
             AppSession.LoggedInUser = null;
             Hide();
-            var loginForm = new LoginForm(_userService, _cardService);
+            var loginForm = new LoginForm(_userService, _cardService, _transactionService);
             loginForm.Show();
         }
 
@@ -53,7 +56,7 @@ namespace OnlineBankApp.Forms
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Hide();
 
-                    var loginForm = new LoginForm(_userService, _cardService);
+                    var loginForm = new LoginForm(_userService, _cardService, _transactionService);
                     loginForm.StartPosition = FormStartPosition.CenterScreen;
                     loginForm.Show();
                 }
@@ -104,7 +107,7 @@ namespace OnlineBankApp.Forms
         private void btnAddAmount_Click(object sender, EventArgs e)
         {
             Hide();
-            var addAmountForm = new AddAmountForm(_userService, _cardService);
+            var addAmountForm = new AddAmountForm(_userService, _cardService, _transactionService);
             addAmountForm.StartPosition = FormStartPosition.CenterScreen;
             addAmountForm.Show();
         }
@@ -112,7 +115,7 @@ namespace OnlineBankApp.Forms
         private void btnWithdrawAmount_Click(object sender, EventArgs e)
         {
             Hide();
-            var withdrawAmountForm = new WithdrawAmountForm(_userService, _cardService);
+            var withdrawAmountForm = new WithdrawAmountForm(_userService, _cardService, _transactionService);
             withdrawAmountForm.StartPosition = FormStartPosition.CenterScreen;
             withdrawAmountForm.Show();
         }
@@ -120,7 +123,7 @@ namespace OnlineBankApp.Forms
         private void btnTransferAmount_Click(object sender, EventArgs e)
         {
             Hide();
-            var transferAmountForm = new TransferAmountForm(_userService, _cardService);
+            var transferAmountForm = new TransferAmountForm(_userService, _cardService, _transactionService);
             transferAmountForm.StartPosition = FormStartPosition.CenterScreen;
             transferAmountForm.Show();
         }
@@ -128,7 +131,7 @@ namespace OnlineBankApp.Forms
         private void btnEditProfile_Click(object sender, EventArgs e)
         {
             Hide();
-            var editProfileForm = new EditProfileForm(_userService, _cardService);
+            var editProfileForm = new EditProfileForm(_userService, _cardService, _transactionService);
             editProfileForm.StartPosition = FormStartPosition.CenterScreen;
             editProfileForm.Show();
         }
@@ -143,6 +146,14 @@ namespace OnlineBankApp.Forms
         {
             btnMyTransactions.BackColor = Color.White;
             btnMyTransactions.ForeColor = Color.DarkCyan;
+        }
+
+        private void btnMyTransactions_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var myTransactionsForm = new MyTransactionsForm(_transactionService);
+            myTransactionsForm.StartPosition = FormStartPosition.CenterScreen;
+            myTransactionsForm.Show();
         }
     }
 }
