@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OnlineBankApp.DataAccess.DataContext;
 using OnlineBankApp.Forms;
 using OnlineBankApp.Services;
+using QuestPDF.Infrastructure;
 
 namespace OnlineBankApp
 {
@@ -25,6 +26,10 @@ namespace OnlineBankApp
             var userService = serviceProvider.GetRequiredService<UserService>();
             var cardService = serviceProvider.GetRequiredService<CardService>();
             var transactionService = serviceProvider.GetRequiredService<TransactionService>();
+
+            QuestPDF.Settings.License = LicenseType.Community;
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginForm(userService, cardService, transactionService));
