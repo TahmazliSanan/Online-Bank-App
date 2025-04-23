@@ -151,7 +151,7 @@ namespace OnlineBankApp.Forms
         private void btnMyTransactions_Click(object sender, EventArgs e)
         {
             Hide();
-            var myTransactionsForm = new MyTransactionsForm(_transactionService);
+            var myTransactionsForm = new MyTransactionsForm(_userService, _cardService, _transactionService);
             myTransactionsForm.StartPosition = FormStartPosition.CenterScreen;
             myTransactionsForm.Show();
         }

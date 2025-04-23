@@ -32,6 +32,7 @@
             lblMyTransactions = new Label();
             groupBox1 = new GroupBox();
             dgvMyTransactions = new DataGridView();
+            linkDashboard = new LinkLabel();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMyTransactions).BeginInit();
             SuspendLayout();
@@ -64,11 +65,25 @@
             dgvMyTransactions.Size = new Size(799, 394);
             dgvMyTransactions.TabIndex = 0;
             // 
+            // linkDashboard
+            // 
+            linkDashboard.AutoSize = true;
+            linkDashboard.Font = new Font("Segoe UI", 12F);
+            linkDashboard.LinkBehavior = LinkBehavior.NeverUnderline;
+            linkDashboard.Location = new Point(737, 52);
+            linkDashboard.Name = "linkDashboard";
+            linkDashboard.Size = new Size(86, 21);
+            linkDashboard.TabIndex = 2;
+            linkDashboard.TabStop = true;
+            linkDashboard.Text = "Dashboard";
+            linkDashboard.LinkClicked += linkDashboard_LinkClicked;
+            // 
             // MyTransactionsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(835, 510);
+            Controls.Add(linkDashboard);
             Controls.Add(groupBox1);
             Controls.Add(lblMyTransactions);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -88,5 +103,6 @@
         private Label lblMyTransactions;
         private GroupBox groupBox1;
         private DataGridView dgvMyTransactions;
+        private LinkLabel linkDashboard;
     }
 }
