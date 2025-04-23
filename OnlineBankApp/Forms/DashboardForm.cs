@@ -1,4 +1,6 @@
-﻿using OnlineBankApp.Services;
+﻿using OnlineBankApp.Reports;
+using OnlineBankApp.Services;
+using QuestPDF.Fluent;
 
 namespace OnlineBankApp.Forms
 {
@@ -8,7 +10,7 @@ namespace OnlineBankApp.Forms
         private readonly CardService _cardService;
         private readonly TransactionService _transactionService;
 
-        public DashboardForm(UserService userService, CardService cardService, 
+        public DashboardForm(UserService userService, CardService cardService,
             TransactionService transactionService)
         {
             InitializeComponent();
@@ -154,6 +156,24 @@ namespace OnlineBankApp.Forms
             var myTransactionsForm = new MyTransactionsForm(_userService, _cardService, _transactionService);
             myTransactionsForm.StartPosition = FormStartPosition.CenterScreen;
             myTransactionsForm.Show();
+        }
+
+        private void btnGetReport_Click(object sender, EventArgs e)
+        {
+            var transactions = _transactionService.GetTransactions(AppSession.LoggedInUser!.Id);
+
+            using var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+            saveFileDialog.Title = "MY TRANSACTION REPORT";
+            saveFileDialog.FileName = $"MovaBank - {AppSession.LoggedInUser!.Username.ToUpper()} - {DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")} - Transaction Report.pdf";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var reportPdf = new ReportPdf(transactions);
+                reportPdf.GeneratePdf(saveFileDialog.FileName);
+
+                MessageBox.Show("Report generated successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
