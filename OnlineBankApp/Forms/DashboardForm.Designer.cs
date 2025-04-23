@@ -76,7 +76,7 @@
             btnGetReport.Name = "btnGetReport";
             btnGetReport.Size = new Size(185, 50);
             btnGetReport.TabIndex = 3;
-            btnGetReport.Text = "Get Report";
+            btnGetReport.Text = "Download Report\r\n(PDF)";
             btnGetReport.UseVisualStyleBackColor = true;
             // 
             // btnTransferAmount
